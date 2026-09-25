@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Evento de Flores Amarillas 🌻</title>
+
+<style>
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background:
+        linear-gradient(
+            180deg,
+            #fff8d8 0%,
+            #fff3b0 30%,
+            #dff5c8 65%,
+            #8bcf72 100%
+        );
+    color: #3d3214;
+    overflow-x: hidden;
+}
+
+/* =====================================================
+   PANTALLA DE INICIO
+===================================================== */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(circle at 50% 35%, #fff9c4, transparent 35%),
+        linear-gradient(
+            180deg,
+            #ffef91,
+            #ffd95e 55%,
+            #8ccf65
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 30px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.55);
+    backdrop-filter: blur(8px);
+
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 8vw, 100px);
+    line-height: .95;
+
+    color: #5d4100;
+
+    text-shadow:
+        0 5px 0 #ffe98a,
+        0 10px 25px rgba(104,76,0,.2);
+}
+
+.hero h1 span {
+    color: #d99200;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 25px auto;
+
+    font-size: clamp(17px, 2vw, 22px);
+    line-height: 1.6;
+}
+
+.start-btn {
+    border: none;
+    cursor: pointer;
+
+    padding: 16px 30px;
+
+    border-radius: 50px;
+
+    background: #f4b400;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    box-shadow: 0 10px 25px rgba(120,80,0,.25);
+
+    transition: .3s;
+}
+
+.start-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: #e39d00;
+}
+
+/* =====================================================
+   FLORES FLOTANTES DEL HERO
+===================================================== */
+
+.floating-flower {
+    position: absolute;
+
+    font-size: 45px;
+
+    animation:
+        floatFlower 5s ease-in-out infinite;
+
+    opacity: .9;
+}
+
+.f1 { left: 5%; top: 20%; animation-delay: 0s; }
+.f2 { right: 8%; top: 18%; animation-delay: 1s; }
+.f3 { left: 12%; bottom: 18%; animation-delay: 2s; }
+.f4 { right: 15%; bottom: 20%; animation-delay: 3s; }
+.f5 { left: 35%; top: 10%; animation-delay: 1.5s; }
+.f6 { right: 35%; bottom: 12%; animation-delay: 2.5s; }
+
+@keyframes floatFlower {
+
+    0%,100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(8deg);
+    }
+}
+
+/* =====================================================
+   SECCIÓN INTRODUCCIÓN
+===================================================== */
+
+.intro {
+    padding: 100px 8%;
+    text-align: center;
+
+    background: rgba(255,255,255,.45);
+}
+
+.section-title {
+    font-size: clamp(35px,5vw,60px);
+    color: #624700;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    max-width: 850px;
+    margin: auto;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* =====================================================
+   JARDÍN
+===================================================== */
+
+.garden-section {
+    padding: 90px 6%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #dff4bd,
+            #94d66e
+        );
+
+    position: relative;
+}
+
+.garden {
+    max-width: 1200px;
+    min-height: 500px;
+
+    margin: 50px auto 0;
+
+    position: relative;
+
+    border-radius: 40px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            #477b32,
+            transparent 60%
+        ),
+        linear-gradient(
+            180deg,
+            #b9e889,
+            #68ad50
+        );
+
+    box-shadow:
+        inset 0 0 80px rgba(36,75,20,.3),
+        0 30px 60px rgba(45,75,20,.2);
+}
+
+/* Sol */
+
+.sun {
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    right: 70px;
+    top: 50px;
+
+    border-radius: 50%;
+
+    background: #fff3a6;
+
+    box-shadow:
+        0 0 60px #fff4a0,
+        0 0 120px #ffe675;
+}
+
+/* Hierba */
+
+.grass {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+
+    background:
+        linear-gradient(
+            170deg,
+            transparent 50%,
+            #4c8d37 51%
+        );
+
+    opacity: .8;
+}
+
+/* =====================================================
+   FLORES INTERACTIVAS
+===================================================== */
+
+.flower {
+    position: absolute;
+
+    cursor: pointer;
+
+    font-size: 65px;
+
+    user-select: none;
+
+    transition: .4s;
+
+    animation:
+        flowerMove 4s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 10px 8px rgba(0,0,0,.2));
+}
+
+.flower:hover {
+    transform:
+        scale(1.4)
+        rotate(10deg);
+
+    filter:
+        drop-shadow(0 0 20px #fff176)
+        drop-shadow(0 10px 8px rgba(0,0,0,.2));
+
+    z-index: 20;
+}
+
+.flower.selected {
+    transform:
+        scale(1.5)
+        rotate(-8deg);
+
+    filter:
+        drop-shadow(0 0 30px white);
+}
+
+@keyframes flowerMove {
+
+    0%,100% {
+        margin-top: 0;
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        margin-top: -15px;
+        transform: rotate(5deg);
+    }
+}
+
+/* Posiciones */
+
+.sunflower {
+    left: 12%;
+    bottom: 110px;
+}
+
+.daffodil {
+    left: 32%;
+    bottom: 150px;
+}
+
+.tulip {
+    left: 52%;
+    bottom: 120px;
+}
+
+.mimosa {
+    left: 72%;
+    bottom: 160px;
+}
+
+.chrysanthemum {
+    left: 84%;
+    bottom: 90px;
+}
+
+.marigold {
+    left: 22%;
+    bottom: 40px;
+}
+
+.freesia {
+    left: 62%;
+    bottom: 40px;
+}
+
+/* =====================================================
+   INFORMACIÓN DE FLORES
+===================================================== */
+
+.flower-info {
+    max-width: 900px;
+
+    margin: 50px auto 0;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.8);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 50px rgba(50,70,20,.15);
+
+    text-align: center;
+
+    transition: .4s;
+}
+
+.flower-info h3 {
+    font-size: 35px;
+    color: #b47700;
+    margin-bottom: 10px;
+}
+
+.flower-info .origin {
+    font-weight: bold;
+    color: #6c7d36;
+    margin-bottom: 15px;
+}
+
+.flower-info p {
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+/* =====================================================
+   CATÁLOGO
+===================================================== */
+
+.catalog {
+    padding: 100px 6%;
+
+    background: #fffdf0;
+}
+
+.flowers-grid {
+    max-width: 1200px;
+
+    margin: 50px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px,1fr));
+
+    gap: 25px;
+}
+
+.card {
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(75,60,10,.1);
+
+    transition: .35s;
+
+    border: 1px solid #f5df87;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 40px rgba(75,60,10,.2);
+}
+
+.card-icon {
+    font-size: 65px;
+    margin-bottom: 15px;
+
+    animation:
+        cardFloat 3s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.card h3 {
+    color: #b37800;
+    margin-bottom: 10px;
+}
+
+.card .country {
+    font-size: 13px;
+
+    color: #718347;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =====================================================
+   SIGNIFICADO
+===================================================== */
+
+.meaning {
+    padding: 100px 8%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0a6,
+            #ffd65a
+        );
+}
+
+.meaning-box {
+    max-width: 900px;
+
+    margin: 40px auto 0;
+
+    padding: 45px;
+
+    background: rgba(255,255,255,.45);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 35px;
+}
+
+.meaning-box p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* =====================================================
+   BOTÓN INTERACTIVO
+===================================================== */
+
+.magic-btn {
+    margin-top: 30px;
+
+    padding: 14px 25px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: #5c8c3d;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.magic-btn:hover {
+    transform: scale(1.05);
+}
+
+/* =====================================================
+   PETALOS
+===================================================== */
+
+.petal {
+    position: fixed;
+
+    top: -50px;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    animation:
+        falling linear forwards;
+}
+
+@keyframes falling {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+    }
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    padding: 40px;
+
+    text-align: center;
+
+    background: #355a2a;
+
+    color: white;
+}
+
+footer strong {
+    color: #ffe477;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:700px) {
+
+    .garden {
+        min-height: 650px;
+    }
+
+    .flower {
+        font-size: 48px;
+    }
+
+    .sunflower { left: 8%; }
+    .daffodil { left: 45%; }
+    .tulip { left: 75%; }
+    .mimosa { left: 20%; bottom: 280px; }
+    .chrysanthemum { left: 65%; bottom: 250px; }
+    .marigold { left: 40%; bottom: 50px; }
+    .freesia { left: 80%; bottom: 60px; }
+
+    .sun {
+        width: 90px;
+        height: 90px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="floating-flower f1">🌻</div>
+    <div class="floating-flower f2">🌼</div>
+    <div class="floating-flower f3">🌷</div>
+    <div class="floating-flower f4">🌻</div>
+    <div class="floating-flower f5">🌼</div>
+    <div class="floating-flower f6">🌻</div>
+
+    <div class="hero-content">
+
+        <div class="badge">
+            EVENTO ESPECIAL
+        </div>
+
+        <h1>
+            Flores <span>Amarillas</span>
+        </h1>
+
+        <p>
+            Un pequeño jardín digital dedicado a la belleza,
+            diversidad y significado de las flores amarillas.
+        </p>
+
+        <button
+            class="start-btn"
+            onclick="document.getElementById('jardin').scrollIntoView()">
+
+            🌻 Entrar al jardín
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTRODUCCIÓN
+===================================================== -->
+
+<section class="intro">
+
+    <h2 class="section-title">
+        Un color lleno de vida
+    </h2>
+
+    <p class="section-description">
+
+        El amarillo suele asociarse con la alegría, la amistad,
+        la energía, la esperanza y los nuevos comienzos.
+        Sin embargo, no existe una única "flor amarilla":
+        diferentes especies poseen historias, formas,
+        aromas y lugares de origen completamente distintos.
+
+        <br><br>
+
+        Explora nuestro jardín y descubre algunas de ellas.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     JARDÍN INTERACTIVO
+===================================================== -->
+
+<section class="garden-section" id="jardin">
+
+    <h2 class="section-title" style="text-align:center;">
+        🌻 Jardín Interactivo
+    </h2>
+
+    <p
+        class="section-description"
+        style="text-align:center;"
+    >
+
+        Haz clic sobre cualquier flor para conocerla.
+
+    </p>
+
+
+    <div class="garden">
+
+        <div class="sun"></div>
+
+        <div
+            class="flower sunflower"
+            data-flower="girasol"
+            onclick="showFlower('girasol', this)"
+        >
+            🌻
+        </div>
+
+        <div
+            class="flower daffodil"
+            data-flower="narciso"
+            onclick="showFlower('narciso', this)"
+        >
+            🌼
+        </div>
+
+        <div
+            class="flower tulip"
+            data-flower="tulipan"
+            onclick="showFlower('tulipan', this)"
+        >
+            🌷
+        </div>
+
+        <div
+            class="flower mimosa"
+            data-flower="mimosa"
+            onclick="showFlower('mimosa', this)"
+        >
+            🌼
+        </div>
+
+        <div
+            class="flower chrysanthemum"
+            data-flower="crisantemo"
+            onclick="showFlower('crisantemo', this)"
+        >
+            🌼
+        </div>
+
+        <div
+            class="flower marigold"
+            data-flower="calendula"
+            onclick="showFlower('calendula', this)"
+        >
+            🌼
+        </div>
+
+        <div
+            class="flower freesia"
+            data-flower="fresia"
+            onclick="showFlower('fresia', this)"
+        >
+            🌼
+        </div>
+
+        <div class="grass"></div>
+
+    </div>
+
+
+    <!-- INFORMACIÓN DINÁMICA -->
+
+    <div class="flower-info" id="flowerInfo">
+
+        <h3>🌻 Girasol</h3>
+
+        <div class="origin">
+            Origen: América del Norte
+        </div>
+
+        <p>
+            El girasol es conocido por su gran inflorescencia
+            amarilla y por su asociación con la energía,
+            la vitalidad y la admiración. Su nombre científico
+            es <i>Helianthus annuus</i>.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CATÁLOGO
+===================================================== -->
+
+<section class="catalog">
+
+    <h2 class="section-title" style="text-align:center;">
+        🌼 Especies del jardín
+    </h2>
+
+    <p
+        class="section-description"
+        style="text-align:center;"
+    >
+        Cada flor tiene una historia diferente.
+    </p>
+
+
+    <div class="flowers-grid">
+
+
+        <!-- GIRASOL -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                🌻
+            </div>
+
+            <h3>Girasol</h3>
+
+            <div class="country">
+                🌎 América del Norte
+            </div>
+
+            <p>
+                Una de las flores amarillas más reconocibles.
+                Está relacionada culturalmente con la alegría,
+                la vitalidad y la admiración.
+            </p>
+
+        </div>
+
+
+        <!-- NARCISO -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                🌼
+            </div>
+
+            <h3>Narciso</h3>
+
+            <div class="country">
+                🌍 Europa y norte de África
+            </div>
+
+            <p>
+                Sus flores pueden presentar tonos amarillos
+                intensos. Es una planta asociada con la
+                primavera y los nuevos comienzos.
+            </p>
+
+        </div>
+
+
+        <!-- TULIPÁN -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                🌷
+            </div>
+
+            <h3>Tulipán amarillo</h3>
+
+            <div class="country">
+                🌍 Asia Central
+            </div>
+
+            <p>
+                Los tulipanes amarillos destacan por sus
+                formas elegantes y colores luminosos.
+                Se cultivan ampliamente en distintas regiones.
+            </p>
+
+        </div>
+
+
+        <!-- MIMOSA -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                🌼
+            </div>
+
+            <h3>Mimosa</h3>
+
+            <div class="country">
+                🌎 América tropical
+            </div>
+
+            <p>
+                Sus pequeñas flores forman agrupaciones
+                redondeadas que crean una apariencia
+                delicada y esponjosa.
+            </p>
+
+        </div>
+
+
+        <!-- CRISANTEMO -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                🌼
+            </div>
+
+            <h3>Crisantemo</h3>
+
+            <div class="country">
+                🌏 Asia
+            </div>
+
+            <p>
+                Es una flor muy diversa, con numerosas
+                formas y variedades. Los amarillos son
+                especialmente llamativos.
+            </p>
+
+        </div>
+
+
+        <!-- CALÉNDULA -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                🌼
+            </div>
+
+            <h3>Caléndula</h3>
+
+            <div class="country">
+                🌍 Mediterráneo
+            </div>
+
+            <p>
+                Sus flores poseen tonos amarillos y
+                anaranjados. Es una especie tradicionalmente
+                cultivada en jardines ornamentales.
+            </p>
+
+        </div>
+
+
+        <!-- FRESIA -->
+
+        <div class="card">
+
+            <div class="card-icon">
+                🌼
+            </div>
+
+            <h3>Fresia</h3>
+
+            <div class="country">
+                🌍 África austral
+            </div>
+
+            <p>
+                Es conocida por sus flores delicadas
+                y fragantes. Las variedades amarillas
+                aportan un color muy luminoso.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SIGNIFICADO
+===================================================== -->
+
+<section class="meaning">
+
+    <h2 class="section-title">
+        💛 ¿Qué representan las flores amarillas?
+    </h2>
+
+    <div class="meaning-box">
+
+        <p>
+
+            Las flores amarillas suelen relacionarse con
+            sentimientos positivos como la alegría,
+            la amistad, la energía, la esperanza y
+            el cariño.
+
+            <br><br>
+
+            Más que un simple color, pueden convertirse
+            en una forma simbólica de decir:
+
+            <br><br>
+
+            <strong>
+                "Quiero compartir contigo un poco de luz."
+            </strong>
+
+        </p>
+
+        <button
+            class="magic-btn"
+            onclick="createPetals()"
+        >
+            ✨ Llenar el jardín de pétalos
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        🌻 <strong>Evento de Flores Amarillas</strong>
+    </p>
+
+    <p style="margin-top:10px;">
+        Un jardín creado para celebrar la belleza,
+        la alegría y los nuevos comienzos.
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   INFORMACIÓN DE LAS FLORES
+===================================================== */
+
+const flowers = {
+
+    girasol: {
+
+        name: "🌻 Girasol",
+
+        origin: "Origen: América del Norte",
+
+        description:
+        "El girasol (Helianthus annuus) es una planta originaria de América del Norte. Su gran inflorescencia amarilla lo convirtió en una de las flores ornamentales más reconocibles. Culturalmente suele relacionarse con la alegría, la vitalidad y la admiración."
+
+    },
+
+    narciso: {
+
+        name: "🌼 Narciso",
+
+        origin: "Origen: Europa y norte de África",
+
+        description:
+        "El narciso pertenece al género Narcissus. Muchas de sus variedades presentan flores amarillas y florecen durante la primavera. Su presencia está asociada con la llegada de una nueva temporada y los nuevos comienzos."
+
+    },
+
+    tulipan: {
+
+        name: "🌷 Tulipán amarillo",
+
+        origin: "Origen: Asia Central",
+
+        description:
+        "Los tulipanes tienen su origen en regiones de Asia Central y posteriormente se extendieron por Europa. Las variedades amarillas destacan por su forma elegante y su color brillante."
+
+    },
+
+    mimosa: {
+
+        name: "🌼 Mimosa",
+
+        origin: "Origen: regiones tropicales y subtropicales",
+
+        description:
+        "La mimosa puede producir pequeñas flores amarillas agrupadas en estructuras redondeadas. Su aspecto delicado y esponjoso la convierte en una planta muy llamativa."
+
+    },
+
+    crisantemo: {
+
+        name: "🌼 Crisantemo",
+
+        origin: "Origen: Asia",
+
+        description:
+        "El crisantemo es una planta cultivada desde hace siglos en Asia y posee una enorme diversidad de formas y colores. Las variedades amarillas destacan especialmente por su luminosidad."
+
+    },
+
+    calendula: {
+
+        name: "🌼 Caléndula",
+
+        origin: "Origen: región mediterránea",
+
+        description:
+        "La caléndula es conocida por sus flores amarillas o anaranjadas. Se cultiva ampliamente como planta ornamental y es una especie característica de jardines soleados."
+
+    },
+
+    fresia: {
+
+        name: "🌼 Fresia",
+
+        origin: "Origen: África austral",
+
+        description:
+        "La fresia es apreciada por sus flores delicadas y su fragancia. Existen variedades amarillas que aportan un color intenso y luminoso a jardines y arreglos florales."
+
+    }
+
+};
+
+
+/* =====================================================
+   MOSTRAR INFORMACIÓN
+===================================================== */
+
+function showFlower(type, element) {
+
+    const flower = flowers[type];
+
+    document.querySelectorAll(".flower")
+        .forEach(f => f.classList.remove("selected"));
+
+    element.classList.add("selected");
+
+    const info = document.getElementById("flowerInfo");
+
+    info.style.transform = "scale(.95)";
+    info.style.opacity = "0";
+
+    setTimeout(() => {
+
+        info.innerHTML = `
+
+            <h3>${flower.name}</h3>
+
+            <div class="origin">
+                ${flower.origin}
+            </div>
+
+            <p>
+                ${flower.description}
+            </p>
+
+        `;
+
+        info.style.transform = "scale(1)";
+        info.style.opacity = "1";
+
+    }, 200);
+
+}
+
+
+/* =====================================================
+   CREAR PÉTALOS
+===================================================== */
+
+function createPetals() {
+
+    for(let i = 0; i < 35; i++) {
+
+        const petal = document.createElement("div");
+
+        petal.classList.add("petal");
+
+        petal.innerHTML = "🌼";
+
+        petal.style.left =
+            Math.random() * 100 + "vw";
+
+        petal.style.fontSize =
+            (15 + Math.random() * 25) + "px";
+
+        petal.style.animationDuration =
+            (3 + Math.random() * 5) + "s";
+
+        petal.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        document.body.appendChild(petal);
+
+        setTimeout(() => {
+            petal.remove();
+        }, 9000);
+
+    }
+
+}
+
+
+/* =====================================================
+   MOVIMIENTO DEL MOUSE
+===================================================== */
+
+document.addEventListener("mousemove", event => {
+
+    const flowers =
+        document.querySelectorAll(".floating-flower");
+
+    const x =
+        (event.clientX / window.innerWidth - .5);
+
+    const y =
+        (event.clientY / window.innerHeight - .5);
+
+    flowers.forEach((flower, index) => {
+
+        const speed = (index + 1) * 5;
+
+        flower.style.transform =
+            `translate(
+                ${x * speed}px,
+                ${y * speed}px
+            )`;
+
+    });
+
+});
+
+
+/* =====================================================
+   PETALOS AUTOMÁTICOS AL CARGAR
+===================================================== */
+
+setTimeout(() => {
+
+    createPetals();
+
+}, 1200);
+
+</script>
+
+</body>
+</html>
